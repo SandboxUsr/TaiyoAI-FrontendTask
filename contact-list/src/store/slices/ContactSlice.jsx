@@ -11,7 +11,7 @@ const contactSlice = createSlice({
             state.splice(action.payload, 1);
         },
         editContact(state, action) {
-            state.splice(action.payload.id, 1, action.payload.contact);
+            state.splice(action.payload.id.id, 1, action.payload.contact);
         }
     }
 });

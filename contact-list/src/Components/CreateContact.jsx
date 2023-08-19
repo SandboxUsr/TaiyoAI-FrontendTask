@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "./Header";
 import Navbar from "./Navbar";
-import ContactList from "./ContactList";
+import ContactDetailsForm from "./ContactDetailsForm";
 
-export default function ContactPage() {
+export default function CreateContact() {
   return (
     <div
       className="m-10 border-4 border-solid border-sky-500"
@@ -12,7 +12,7 @@ export default function ContactPage() {
       <Header />
       <div className="flex">
         <Navbar />
-        <ContactList />
+        <ContactDetailsForm />
       </div>
     </div>
   );

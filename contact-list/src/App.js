@@ -1,9 +1,9 @@
 import './App.css';
-import ContactPage from './Components/ContactPage';
+import CreateContact from './Components/CreateContact';
 
 function App() {
   return <>
-    <ContactPage />
+    <CreateContact />
   </>
 }
 

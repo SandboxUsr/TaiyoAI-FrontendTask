@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import { useDispatch } from "react-redux";
-import { addContact } from "../store/slices/ContactSlice";
+import { editContact } from "../store/slices/ContactSlice";
 import Header from "./Header";
-import Navbar from "./Navbar"
-import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
+import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 
-export default function ContactDetailsForm() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [status, setStatus] = useState("");
-  const dispatch = useDispatch();
+export default function EditContact() {
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [status, setStatus] = useState("");
+    const dispatch = useDispatch();
+    const location = useLocation();
+    const id = location.state;
 
   return (
     <div
@@ -21,7 +24,7 @@ export default function ContactDetailsForm() {
         <Navbar />
     <div className="bg-gray-100 w-full">
       <div className="flex justify-center mt-14 font-bold text-lg">
-        Fill the Details
+        Edit Contact Screen
       </div>
       <div className="w-96 h-80 mt-5 bg-white mx-auto border border-black border-solid">
         <form action="#">
@@ -80,23 +83,23 @@ export default function ContactDetailsForm() {
       </div>
       <div className="flex justify-center ml-16">
         <Link to="/">
-          <button
+            <button
             className="text-lg font-medium mr-20 border border-solid border-black p-3 mt-7 bg-gray-400"
             onClick={() => {
-              let contact = {
-                  firstName: firstName,
-                  lastName: lastName,
-                  status: status
-              }
-              dispatch(addContact(contact));
+                let contact = {
+                    firstName: firstName,
+                    lastName: lastName,
+                    status: status
+                }
+                dispatch(editContact({id: id, contact: contact}));
             }}
-          >
-            Save Contact
-          </button>
+            >
+            Save Editted Contact
+            </button>
         </Link>
       </div>
     </div>
     </div>
-    </div>
-  );
+          </div>
+  )
 }

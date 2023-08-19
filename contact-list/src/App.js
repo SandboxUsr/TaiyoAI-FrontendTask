@@ -1,9 +1,18 @@
 import './App.css';
-import CreateContact from './Components/CreateContact';
+import ContactPage from "./Components/ContactPage"
+import ContactDetailsForm from './Components/ContactDetailsForm';
+import EditContact from './Components/EditContact';
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
   return <>
-    <CreateContact />
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<ContactPage />} />
+        <Route path='/add' element={<ContactDetailsForm />} />
+        <Route path='/edit' element={<EditContact />} />
+      </Routes>
+    </BrowserRouter>
   </>
 }
 
